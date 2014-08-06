@@ -33,6 +33,7 @@ group :development, :test do
 end
 
 group :test, :production do
+   gem 'rails_12factor'
 end
 
 group :development do
@@ -42,7 +43,7 @@ group :development do
 end
 
 group :production do
-   gem 'rails_12factor'
+   gem 'unicorn'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
