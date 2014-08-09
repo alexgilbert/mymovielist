@@ -30,6 +30,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :development, :test do
    gem 'rspec-rails', '~> 3.0.0'
+   gem 'autotest-rails'
+   gem 'capybara'
 end
 
 group :test, :production do

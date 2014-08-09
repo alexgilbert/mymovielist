@@ -22,9 +22,10 @@ development:
 test:
   <<: *default
   encoding: unicode
+  host: localhost
   database: application_name_test
   username: application_name_test
-  password:
+  password: temp_test
 
 production:
   <<: *default
