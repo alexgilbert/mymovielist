@@ -12,14 +12,14 @@ gem 'bcrypt-ruby'
 # gem 'therubyracer',  platforms: :ruby
 
 
-group :assets do
-  gem "twitter-bootstrap-rails"
-  gem 'uglifier', '>= 1.3.0'
-  gem "therubyracer"
-  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-  gem 'sass-rails', '~> 4.0.3'
-  gem 'coffee-rails', '~> 4.0.0'
-end
+
+gem "twitter-bootstrap-rails"
+gem 'uglifier', '>= 1.3.0'
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+#gem 'sass-rails', '~> 4.0.3'
+gem 'coffee-rails', '~> 4.0.0'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
