@@ -8,13 +8,15 @@
   <%= render 'layouts/shim' %>
 </head>
 <body>
-	<div class="container">
-		 <%= render 'layouts/header' %>
-		 <div class="container">
-		   <%= yield %>
-		 </div>
-		<%= render 'layouts/footer' %>
-		<%= debug(params) if Rails.env.development? %>
-	</div>
+  <div class="container">
+    <%= render 'layouts/header' %>
+      <div class="container">
+        <% flash.each do |key, value| %>
+          <div class="alert aleart-<%= key %>"><%= value %></div>
+        <% end %>
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+        <%= debug(params) if Rails.env.development? %>
+      </div>
 </body>
 </html>
