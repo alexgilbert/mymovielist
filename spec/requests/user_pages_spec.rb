@@ -22,6 +22,13 @@ describe "User pages" do
       end
     end
 
+    describe "after submission" do
+      before { click_button submit }
+
+      it { should have_title('Sign up') }
+      it { should have_content('error') }
+    end
+
     describe "with valid information" do
       before do
         fill_in "Name",		with: "Example User"
