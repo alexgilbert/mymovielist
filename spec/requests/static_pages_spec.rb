@@ -10,6 +10,13 @@ describe "Static pages" do
     it { should have_content('Application Name') }
     it { should have_title('') }
     it { should_not have_title('| Home') }
+
+    describe "Click signup button" do
+      before { click_link "Sign up now!" }
+
+      it { should have_title('Sign up') }
+      it { should have_content('Sign up') }
+    end
   end
 
   describe "Help page" do
