@@ -11,7 +11,7 @@ gem 'bcrypt-ruby'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-
+gem 'faker', '1.1.2'
 
 gem "twitter-bootstrap-rails"
 gem 'uglifier', '>= 1.3.0'
