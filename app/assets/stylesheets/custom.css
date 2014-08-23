@@ -159,7 +159,7 @@ input {
 
 /* Users index */
 
-ul.users {
+.users ul {
   list-style: none;
   margin: 0;
 }
@@ -167,9 +167,9 @@ ul.users {
 ul.users li {
   overflow: auto;
   padding: 10px 0;
-  border-top: 1px solid $grayLighter;
+  border-top: 1px solid #eee;
   &:last-child {
-    border-bottom: 1px solid $grayLighter;
+    border-bottom: 1px solid #eee;
   }
 }
 
