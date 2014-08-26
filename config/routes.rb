@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   get '/home' => 'static_pages#home'
   get '/help' => 'static_pages#help'	
 
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   match '/signup',	to: 'users#new',	via: 'get'
   
   resources :sessions, only: [:new, :create, :destroy]
