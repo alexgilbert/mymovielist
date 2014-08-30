@@ -21,8 +21,8 @@ describe RelationshipsController, type: :request do
     end
   end
 
-  describe "destorying a relationship with Ajax" do
-    
+  describe "destroying a relationship with Ajax" do
+
     before { user.follow!(other_user) }
     let(:relationship) do
       user.relationships.find_by(followed_id: other_user.id)
