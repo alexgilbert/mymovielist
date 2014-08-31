@@ -16,4 +16,18 @@ describe Movie  do
   it { should respond_to(:overview) }
   it { should respond_to(:users) }
 
+  describe "when imdb_id not present" do
+    before { @movie.imdb_id = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when title not present" do
+    before { @movie.title = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when release_date not present" do
+    before { @movie.release_date  = " " }
+    it { should_not be_valid }
+  end
 end
