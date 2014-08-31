@@ -4,6 +4,7 @@ namespace :db do
     make_users
     make_microposts
     make_relationships
+    make_movies
   end
 end
 
@@ -33,4 +34,8 @@ def make_relationships
   followers = users[3..40]
   followed_users.each { |followed| user.follow!(followed) }
   followers.each { |follower| follower.follow!(user) }
+end
+
+def make_movies
+  Movie.create!(imdb_id: "tt0137523", title: "Fight Club", release_date: "1999-10-14", runtime: 139, adult: false, overview: "A ticking-tim-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
 end
