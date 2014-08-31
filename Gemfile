@@ -21,6 +21,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 #gem 'sass-rails', '~> 4.0.3'
 gem 'coffee-rails', '~> 4.0.0'
 
+gem 'themoviedb'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
