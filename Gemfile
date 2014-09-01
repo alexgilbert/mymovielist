@@ -10,6 +10,7 @@ gem 'bcrypt-ruby'
 # Use CoffeeScript for .js.coffee assets and views
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
+gem 'date_validator'
 
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'

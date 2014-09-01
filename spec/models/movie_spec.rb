@@ -30,4 +30,19 @@ describe Movie  do
     before { @movie.release_date  = " " }
     it { should_not be_valid }
   end
+
+  describe "when release_date is string" do
+    before { @movie.release_date = "string" }
+    it { should_not be_valid }
+  end
+
+  describe "when release_date is in future" do
+    before { @movie.release_date = Proc.new { 10.days.from_now }.to_s }
+    it { should_not be_valid }
+  end
+
+  describe "when runtime is string" do
+    before { @movie.runtime = "string" }
+    it { should_not be_valid }
+  end
 end

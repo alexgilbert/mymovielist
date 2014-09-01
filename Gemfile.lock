@@ -52,6 +52,8 @@ GEM
       execjs
     coffee-script-source (1.7.1)
     commonjs (0.2.7)
+    date_validator (0.7.0)
+      activemodel (>= 3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.1)
@@ -203,6 +205,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 0.0.9)
   capybara
   coffee-rails (~> 4.0.0)
+  date_validator
   factory_girl_rails (= 4.2.0)
   faker (= 1.1.2)
   jbuilder (~> 2.0)

@@ -4,5 +4,6 @@ class Movie < ActiveRecord::Base
 
   validates :imdb_id, presence: true
   validates :title, presence: true
-  validates :release_date, presence: true
+  validates :release_date, presence: true, date: { before: Proc.new { Time.now } }
+  validates :runtime, numericality: { only_integer: true }
 end
