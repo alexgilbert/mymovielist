@@ -138,6 +138,32 @@ describe User do
     end
   end	
 
+  describe "movie associations" do
+    before { @user.save }
+    let(:movie) { FactoryGirl.create(:movie) }
+    let!(:own) do
+      FactoryGirl.create(:own, user: @user, movie: movie) 
+    end
+
+    it "should have movie association" do
+      expect(@user.movies).not_to be_empty
+    end
+
+    it "should have correct movie association" do
+      expect(@user.movies.to_a).to eq [movie]
+    end
+
+    it "should destroy associated movies" do
+      movies = @user.movies.to_a
+      user_id = @user.id
+      @user.destroy
+      expect(movies).not_to be_empty
+      movies.each do |movie|
+        expect(Own.where(movie_id: movie.id, user_id: user_id)).to be_empty
+      end
+    end
+  end
+
   describe "micropost associations" do 
     before { @user.save }
     let!(:older_micropost) do

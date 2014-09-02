@@ -14,4 +14,18 @@ FactoryGirl.define do
     content "Lorem ipsum"
     user
   end
+
+  factory :movie do
+    sequence(:imdb_id) { |n| "Imdb_id_#{n}" }
+    sequence(:title) { |n|  "Title #{n}" }
+    release_date "2000-01-01"
+    runtime 110
+    adult false
+    sequence(:overview) { |n| "Overview of Title #{n}" }
+  end
+
+  factory :own do
+    user
+    movie
+  end
 end

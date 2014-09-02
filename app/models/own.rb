@@ -1,4 +1,4 @@
-class UserMovie < ActiveRecord::Base
+class Own < ActiveRecord::Base
   belongs_to :user
   belongs_to :movie
 end
