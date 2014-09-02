@@ -45,4 +45,30 @@ describe Movie  do
     before { @movie.runtime = "string" }
     it { should_not be_valid }
   end
+
+  describe "user associations" do
+    before { @movie.save }
+    let(:user) { FactoryGirl.create(:user) }
+    let!(:own) do
+      FactoryGirl.create(:own, user: user, movie: @movie) 
+    end
+
+    it "should have user association" do
+      expect(@movie.users).not_to be_empty
+    end
+
+    it "should have correct user association" do
+      expect(@movie.users.to_a).to eq [user]
+    end
+
+    it "should destroy associated user" do
+      users = @movie.users.to_a
+      movie_id = @movie.id
+      @movie.destroy
+      expect(users).not_to be_empty
+      users.each do |user|
+        expect(Own.where(movie_id: movie_id, user_id: user.id)).to be_empty
+      end
+    end
+  end
 end
