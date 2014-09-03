@@ -20,6 +20,13 @@ Rails.application.routes.draw do
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   delete 'relationships'  => 'relationships#destroy'
+
+  resources :movies
+  resources :tv, only: [:index, :show]
+  resources :collection, only: [:index, :show]
+  resources :person, only: [:index, :show]
+  resources :company, only: [:index, :show]
+  resources :genre, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
