@@ -4,6 +4,11 @@ class MovieController < ApplicationController
   end
 
   def show
+    @movie = TmdbMovie.detail(param[:id])    
+    @images = TmdbMovie.images(params[:id])
+    @cast = TmdbMovie.casts(params[:id])
+    @trailers = TmdbMovie.trailers(params[:id])
+    @similar_movies = TmdbMovie.similar_movies(params[:id])
   end
 
   def create

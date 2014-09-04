@@ -1,12 +1,15 @@
 require 'themoviedb'
 
-class Tmdb < ActiveRecord::Base
-  after_initialize :readonly!, :set_config
+class Tmdb
+  after_initialize :set_config
+  self.abstract_class = true
 
   Tmdb::Api.key("74f4cc71015648e1a1c3dea642c2d4f0")
-
-  def set_config
-    @configurations = Tmdb::Configuration.new
-  end
   
+  def set_config
+    @configuration = Tmdb::Configuration.new
+  end
+
+  def abstract_find
+  end
 end
