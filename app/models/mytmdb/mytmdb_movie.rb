@@ -1,6 +1,7 @@
 class MytmdbMovie < Mytmdb
 
   def initialize id
+    super()
     @id ||= id
   end
 

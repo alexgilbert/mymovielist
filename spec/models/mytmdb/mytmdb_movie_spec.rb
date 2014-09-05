@@ -10,4 +10,9 @@ describe MytmdbMovie do
   subject { @tmdb_movie }
 
   it { should respond_to(:movie) }
+  it { should respond_to(:find) }
+  it { should respond_to(:images) }
+  it { should respond_to(:casts) }
+  it { should respond_to(:trailers) }
+  it { should respond_to(:similar_movies) }
 end

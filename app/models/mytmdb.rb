@@ -10,4 +10,8 @@ class Mytmdb
   def set_config
     @configuration = Tmdb::Configuration.new
   end
+
+  def configuration
+    return @configuration
+  end
 end
