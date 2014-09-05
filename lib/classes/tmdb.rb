@@ -1,6 +1,6 @@
 require 'themoviedb'
 
-class Tmdb
+class Tmdb 
   after_initialize :set_config
   self.abstract_class = true
 
@@ -8,8 +8,5 @@ class Tmdb
   
   def set_config
     @configuration = Tmdb::Configuration.new
-  end
-
-  def abstract_find
   end
 end
