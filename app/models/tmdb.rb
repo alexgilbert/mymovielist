@@ -1,6 +1,6 @@
 require 'themoviedb'
 
-class Tmdb 
+module Tmdb 
   after_initialize :set_config
   self.abstract_class = true
 
