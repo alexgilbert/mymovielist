@@ -1,9 +1,10 @@
 require 'spec_helper'
+require 'mytmdb/mytmdb_movie'
 
-describe Tmdb::TmdbMovie do
+describe MytmdbMovie do
 
   before do
-    @tmdb_movie = Tmdb::TmdbMovie.new(id: 1) 
+    @tmdb_movie = Mytmdb::MytmdbMovie.new(id: 1) 
   end
 
   subject { @tmdb_movie }

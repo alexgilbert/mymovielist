@@ -1,4 +1,4 @@
-class Tmdb::TmdbMovie < Tmdb
+class MytmdbMovie < Mytmdb
 
   def initialize id
     @id ||= id

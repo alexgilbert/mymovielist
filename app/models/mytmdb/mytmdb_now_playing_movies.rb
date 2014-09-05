@@ -1,4 +1,4 @@
-class TmdbNowPlayingMovies < Tmdb
+class MytmdbNowPlayingMovies < Mytmdb
   @movies
   
   def get

@@ -1,4 +1,4 @@
-class TmdbPopularMovies < Tmdb
+class MytmdbPopularMovies < Mytmdb
   @movies
   
   def get
