@@ -22,10 +22,10 @@ Rails.application.routes.draw do
   delete 'relationships'  => 'relationships#destroy'
 
   resources :movies
-  resources :tvs, only: [:index, :show]
+  resources :tv, only: [:index, :show]
   resources :collections, only: [:index, :show]
-  resources :people, only: [:index, :show]
-  resources :companies, only: [:index, :show]
+  resources :person, only: [:index, :show]
+  resources :company, only: [:index, :show]
   resources :genres, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

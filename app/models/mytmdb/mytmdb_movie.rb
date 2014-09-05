@@ -14,12 +14,6 @@ class MytmdbMovie < Mytmdb
     return @movie
   end
 
-
-  def find title
-    @movie ||= Tmdb::Movie.find(title)
-    return @movie
-  end
-  
   def images
     @images ||= Tmdb::Movie.images(@id)
     return @images
