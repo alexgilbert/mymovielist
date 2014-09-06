@@ -1,0 +1,30 @@
+<table class="table table-bordered table-striped table-hover">
+  <% @results.each do |person| %>
+    <tr>
+      <td style="width:15%">
+        <%= link_to person_path(person.details.id) do %>
+        <%= image_tag("#{@configuration.base_url}w154#{person.details.profile_path}") if person.details.profile_path %>
+	<% end %>
+      </td>
+      <td>
+        <%= link_to person.details.name, person_path(person.details.id) %> ( <%= person.details.birthday %>
+        <% if person.details.deathday.present? %>
+          - <%= person.details.deathday %>
+        <% end %>)<br />
+        <% if person.details.place_of_birth.present? %>
+          Place of Birth: <%= person.details.place_of_birth %>
+        <% end %><br /><br />
+	<% if person.movie_credits.cast.any? %>
+          Movies: |<% person.movie_credits.cast.first(10).each do |movie| %>
+            <%= link_to movie['title'], movie_path(movie['id']) %> |
+          <% end %>
+	<% end %><br/><br/>
+	<% if person.tv_credits.cast.any? %>
+          TV: |<% person.tv_credits.cast.first(10).each do |tv| %>
+            <%= link_to tv['title'], tv_path(tv['id']) %> |
+          <% end %>
+	<% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

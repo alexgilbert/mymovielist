@@ -1,5 +1,6 @@
 class MytmdbSearchPerson < MytmdbSearch
   def find value
-  	return results_to_mytmdb(Tmdb::person.find(value),"2")
+    @results = Tmdb::Person.find(value)
+    return results_to_mytmdb("2")
   end
 end
