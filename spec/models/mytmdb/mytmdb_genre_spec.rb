@@ -9,5 +9,5 @@ describe MytmdbGenre do
 
   subject { @tmdb_genre }
 
-  it { should respond_to(:genre) }
+  it { should respond_to(:details) }
 end

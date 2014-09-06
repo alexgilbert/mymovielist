@@ -7,9 +7,9 @@ class MytmdbCollection < Mytmdb
 
   # responds to
   # backdrop_path, parts, poster_path, name
-  def collection
-    @collection ||= Tmdb::Collection.detail(@id)
-    return @collection
+  def details
+    @details ||= Tmdb::Collection.detail(@id)
+    return @details
   end
 
   def images

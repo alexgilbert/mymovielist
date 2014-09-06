@@ -9,6 +9,6 @@ describe MytmdbCompany do
 
   subject { @tmdb_company }
 
-  it { should respond_to(:company) }
+  it { should respond_to(:details) }
   it { should respond_to(:movies) }
 end

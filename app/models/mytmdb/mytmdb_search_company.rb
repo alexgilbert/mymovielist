@@ -1,5 +1,5 @@
-class MytmdbSearchCompany < Mytmdb
+class MytmdbSearchCompany < MytmdbSearch
   def find value
-  	return Tmdb::Company.find(value)
+  	return results_to_mytmdb(Tmdb::Company.find(value),"3")
   end
 end

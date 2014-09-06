@@ -7,9 +7,9 @@ class MytmdbCompany < Mytmdb
 
   # responds to
   # description, homepage, logo_path, name, parent_company
-  def company
-    @company ||= Tmdb::Company.detail(@id)
-    return @company
+  def details
+    @details ||= Tmdb::Company.detail(@id)
+    return @details
   end
 
   def movies

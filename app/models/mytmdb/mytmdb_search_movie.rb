@@ -1,5 +1,6 @@
-class MytmdbSearchMovie < Mytmdb
+class MytmdbSearchMovie < MytmdbSearch
   def find value
-  	return Tmdb::Movie.find(value)
+  	@results = Tmdb::Movie.find(value)
+  	results_to_mytmdb("1")
   end
 end

@@ -8,9 +8,9 @@ class MytmdbPerson < Mytmdb
   # responds to
   # name, place_of_birth, also_known_as, adult, biography, birthday, deathday
   # homepage, profile_path, imdb_id, popularity
-  def person
-    @person ||= Tmdb::Person.detail(@id)
-    return @person
+  def details
+    @details ||= Tmdb::Person.detail(@id)
+    return @details
   end
 
   def credits

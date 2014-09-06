@@ -9,6 +9,6 @@ describe MytmdbCollection do
 
   subject { @tmdb_collection }
 
-  it { should respond_to(:collection) }
+  it { should respond_to(:details) }
   it { should respond_to(:images) }
 end

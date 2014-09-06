@@ -9,7 +9,7 @@ describe MytmdbPerson do
 
   subject { @tmdb_person }
 
-  it { should respond_to(:person) }
+  it { should respond_to(:details) }
   it { should respond_to(:credits) }
   it { should respond_to(:movie_credits) }
   it { should respond_to(:tv_credits) }
