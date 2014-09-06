@@ -1,4 +1,4 @@
-class MytmdbMovie < Mytmdb
+class MytmdbCollection < Mytmdb
 
   def initialize id
     super()
@@ -6,31 +6,14 @@ class MytmdbMovie < Mytmdb
   end
 
   # responds to
-  # adult, backdrop_path, belongs_to_collection, budget, genres, homepage, id, imdb_id, original_title
-  # overview, popularity, poster_path, production_companies, production_countries, release_date, 
-  # revenue, runtime, spoken_languages, status, tagline, title, vote_average, vote_count
-  def movie
-    @movie ||= Tmdb::Movie.detail(@id)
-    return @movie
+  # backdrop_path, parts, poster_path, name
+  def collection
+    @collection ||= Tmdb::Collection.detail(@id)
+    return @collection
   end
 
   def images
-    @images ||= Tmdb::Movie.images(@id)
+    @images ||= Tmdb::Collection.images(@id)
     return @images
-  end
-
-  def casts
-    @casts ||= Tmdb::Movie.casts(@id)
-    return @casts
-  end
-
-  def trailers
-    @trailers ||= Tmdb::Movie.trailers(@id)
-    return @trailers
-  end
-
-  def similar_movies
-    @similar_movies ||= Tmdb::Movie.similar_movies(@id)
-    return @similar_movies
   end
 end
