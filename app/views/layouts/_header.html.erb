@@ -1,5 +1,6 @@
 <div class="masthead">    
   <ul class="nav nav-pills pull-right">
+    <li><%= render 'layouts/search_bar' %></li>
     <li><%= link_to "Home", root_path %></li>
     <li><%= link_to "Help", help_path  %></li>
     <% if signed_in? %>

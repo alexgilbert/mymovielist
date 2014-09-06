@@ -1,10 +1,12 @@
-Search for a movie
-<%= form_tag("/search", :method => "get") do %>
-<select name="type">
-	  <option value="1" selected="selected">Movie</option>
-	  <option value="2">Person</option>
-	  <option value="3">Company</option>
-	  <option value="4">Collection</option>
-</select>
-<%= text_field_tag(:value, nil, :class => "input-xlarge searchInput") %>
-<% end %>
+<div class="search">
+  <%= form_tag("/search", :method => "get", :class => "form-search") do %>
+  <label for="type">Search</label>
+  <select name="type" id="type">
+    <option value="1" selected="selected">Movie</option>
+    <option value="2" disabled="true">Person</option>
+    <option value="3" disabled="true">Company</option>
+    <option value="4" disabled="true">Collection</option>
+  </select>
+  <%= text_field_tag(:value, nil, :class => "input-xlarge searchInput") %>
+  <% end %>
+</div>

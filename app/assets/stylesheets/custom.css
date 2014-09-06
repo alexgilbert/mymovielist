@@ -222,4 +222,20 @@ ul.users li {
   color: #eee;
 }
 
+/* search */
 
+.search {
+  display: inline;
+}
+
+.search label {
+  color: #0088cc;
+}
+
+.search select {
+  width: 100px;
+}
+
+.search input {
+  width: 200px;
+}

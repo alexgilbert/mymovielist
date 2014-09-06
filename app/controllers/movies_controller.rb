@@ -6,13 +6,13 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @tmdb = Mytmdb::MytmdbMovie.new(params[:id])
-    @configuration = @tmdb.configuration
-    @movie = @tmdb.movie    
-    @images = @tmdb.images
-    @cast = @tmdb.casts
-    @trailers = @tmdb.trailers
-    @similar_movies = @tmdb.similar_movies
+    @mytmdb_movie = Mytmdb::MytmdbMovie.new(params[:id])
+    @configuration = @mytmdb_movie.configuration
+    @movie = @mytmdb_movie.details    
+    @images = @mytmdb_movie.images
+    @cast = @mytmdb_movie.cast
+    @trailers = @mytmdb_movie.trailers
+    @similar_movies = @mytmdb_movie.similar_movies
   end
 
   def create

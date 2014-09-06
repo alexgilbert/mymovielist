@@ -6,9 +6,9 @@ class PersonController < ApplicationController
   end
 
   def show
-    @tmdb = Mytmdb::MytmdbPerson.new(params[:id])
-    @configuration = @tmdb.configuration
-    @person = @tmdb.person
-    @movies = @tmdb.credits
+    @mytmdb_person = Mytmdb::MytmdbPerson.new(params[:id])
+    @configuration = @mytmdb_person.configuration
+    @person = @mytmdb_person.details
+    @movies = @mytmdb_person.credits
   end
 end
