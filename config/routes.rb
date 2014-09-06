@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :tv, only: [:index, :show]
   resources :collections, only: [:index, :show]
   resources :person, only: [:index, :show]
+  get '/people' => 'person#index'
   resources :company, only: [:index, :show]
   resources :genres, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <%= image_tag("#{@configuration.base_url}w154#{@person.profile_path}") if @person.profile_path %>
+      <h2>Born</h2>
+      <%= @person.place_of_birth %>
+      <h2>Birthday</h2>
+      <%= @person.birthday %>
+    </div>
+    <div class="span10">
+    	<h1><%= @person.name %></h1>
+			<%= @person.biography %><br />
+			<h2>Website</h2>
+      <%= link_to @person.homepage, @person.homepage %>
+      <h2>Known For</h2>
+      <% @movies['cast'].first(7).each do |movie| %>
+				<%= link_to movie_path(movie['id']) do %>
+					<%= image_tag("#{@configuration.base_url}w92#{movie['poster_path']}") if movie['poster_path'] %>
+				<% end %>
+			<% end %>
+    </div>
+  </div>
+</div>
