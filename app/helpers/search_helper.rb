@@ -10,6 +10,8 @@ module SearchHelper
     		render 'company_results'
     	when "4"
     		render 'collection_results'
+        when "5" 
+                render 'tv_results'
     	else
     		render 'movie_results'
   	end

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :movies
   resources :tv, only: [:index, :show]
+  get '/tvs' => 'tv#index'
   resources :collections, only: [:index, :show]
   resources :person, only: [:index, :show]
   get '/people' => 'person#index'

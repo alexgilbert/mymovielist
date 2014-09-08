@@ -10,8 +10,8 @@
       Number Of Episodes: <%= @show.number_of_episodes %><br />
       Number Of Seasons: <%= @show.number_of_seasons %><br />
       <h2>Creators</h2>
-      <% if @show['created_by'].any? %>
-        <% @show['created_by'].each do |person| %>
+      <% if @show.created_by.any? %>
+        <% @show.created_by.each do |person| %>
           <%= link_to person.name person_path(person.id) %><br />
     	<% end %>
       <% end %>
