@@ -5,20 +5,7 @@ require_dependency 'mytmdb/mytmdb_search_collection'
 require_dependency 'mytmdb/mytmdb_search_tv'
 
 class SearchFactory
-  def self.build s
-  	case s
-    	when "1"
-    		return MytmdbSearchMovie.new
-    	when "2"
-    		return MytmdbSearchPerson.new
-    	when "3"
-    		return MytmdbSearchCompany.new
-    	when "4"
-    		return MytmdbSearchCollection.new
-        when "5"
-                return MytmdbSearchTv.new
-    	else
-    		return MytmdbSearchMovie.new
-  	end
+  def self.build i
+    return SEARCH_LIST[0][i.to_i][:search].constantize.new  	
   end
 end
