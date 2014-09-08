@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <h3>Poster</h3>
+      <%= image_tag("#{@configuration.base_url}w154#{@show.poster_path}") if @show.poster_path %>
+      <h3>Facts</h3>
+      First Air Date: <%= @show.first_air_date.to_date.strftime("%d/%m/%Y") if @show.first_air_date %><br />
+      Last Air Date: <%= @show.last_air_date.to_date.strftime("%d/%m/%Y") if @show.last_air_date %><br />
+      Episode Run Time: <%= @show.episode_run_time %><br />
+      Number Of Episodes: <%= @show.number_of_episodes %><br />
+      Number Of Seasons: <%= @show.number_of_seasons %><br />
+      <h2>Creators</h2>
+      <% if @show['created_by'].any? %>
+        <% @show['created_by'].each do |person| %>
+          <%= link_to person.name person_path(person.id) %><br />
+    	<% end %>
+      <% end %>
+    </div>
+    <div class="span10">
+      <h2><%= @show.name %></h2>
+      <div id="star" data-score="<%= @show.vote_average %>"></div> <%= @show.vote_average %> from <%= @show.vote_count %> voters.
+        <h3>Overview</h3>
+	<%= @show.overview %>
+
+	<h3>Images</h3>
+	<% @images.backdrops.each do |image| %>
+	  <%= image_tag("#{@configuration.base_url}w154#{image['file_path']}") if image['file_path'] %>
+        <% end %>
+
+        <h3>Genres</h3>
+	<% @show.genres.each do |genre| %>
+	  <%= genre['name'] %>
+        <% end %>
+
+        <h3>Casts</h3>
+        <table class="table table-bordered table-striped table-hover">
+          <% @cast.first(6).each do |cast| %>
+          <tr>
+            <td style="width:15%">
+              <%= image_tag("#{@configuration.base_url}w300#{cast['profile_path']}") if cast['profile_path'] %>
+              <% unless cast['profile_path'] %><img src="http://placehold.it/154x154"><% end %>
+            </td>
+            <td>
+              <%= link_to cast['name'], person_path(cast['id']) %> as <%= cast['character'] %><br />
+            </td>
+          </tr>
+          <% end %>
+        </table>
+    </div>
+  </div>
+</div>

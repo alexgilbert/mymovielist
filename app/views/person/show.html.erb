@@ -8,16 +8,27 @@
       <%= @person.birthday %>
     </div>
     <div class="span10">
-    	<h1><%= @person.name %></h1>
-			<%= @person.biography %><br />
-			<h2>Website</h2>
+      <h1><%= @person.name %></h1>
+      <%= @person.biography %><br />
+      <h2>Website</h2>
       <%= link_to @person.homepage, @person.homepage %>
       <h2>Known For</h2>
-      <% @movies['cast'].first(7).each do |movie| %>
-				<%= link_to movie_path(movie['id']) do %>
-					<%= image_tag("#{@configuration.base_url}w92#{movie['poster_path']}") if movie['poster_path'] %>
-				<% end %>
-			<% end %>
+      <% if @movies['cast'].any? %>
+      <h3>Movies</h3>
+        <% @movies['cast'].first(9).each do |movie| %>
+	  <%= link_to movie_path(movie['id']) do %>
+	    <%= image_tag("#{@configuration.base_url}w92#{movie['poster_path']}") if movie['poster_path'] %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% if @shows['cast'].any? %>
+      <h3>TV</h3>
+        <% @shows['cast'].first(9).each do |show| %>
+	  <%= link_to tv_path(show['id']) do %>
+	    <%= image_tag("#{@configuration.base_url}w92#{show['poster_path']}") if show['poster_path'] %>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
