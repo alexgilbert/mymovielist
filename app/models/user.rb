@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
   has_many :owns, dependent: :destroy
   has_many :movies, through: :owns
+  has_many :lists, dependent: :destroy
 
   has_secure_password
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

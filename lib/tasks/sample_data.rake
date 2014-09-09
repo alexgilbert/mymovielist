@@ -5,6 +5,7 @@ namespace :db do
     make_microposts
     make_relationships
     make_movies
+    make_lists
   end
 end
 
@@ -38,4 +39,9 @@ end
 
 def make_movies
   Movie.create!(imdb_id: "tt0137523", title: "Fight Club", release_date: "1999-10-14", runtime: 139, adult: false, overview: "A ticking-tim-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
+end
+
+def make_lists
+  User.all.each { |user| List.create(name: Faker::Lorem.word, user_id: user.id) }
+  User.first(10).each { |user| List.create(name: "Queue", user_id: user.id) }
 end

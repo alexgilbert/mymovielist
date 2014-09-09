@@ -25,6 +25,7 @@ describe User do
   it { should respond_to(:following?) }
   it { should respond_to(:follow!) }
   it { should respond_to(:movies) }
+  it { should respond_to(:lists) }
  
   it { should be_valid }
   it { should_not be_admin }
@@ -160,6 +161,29 @@ describe User do
       expect(movies).not_to be_empty
       movies.each do |movie|
         expect(Own.where(movie_id: movie.id, user_id: user_id)).to be_empty
+      end
+    end
+  end
+
+  describe "list associations" do
+    before { @user.save }
+    let!(:older_list) do
+      FactoryGirl.create(:list, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_list) do
+      FactoryGirl.create(:list, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right microposts in the right order" do
+      expect(@user.lists.to_a).to eq [newer_list, older_list]
+    end
+
+    it "should destroy associated lists" do
+      lists = @user.lists.to_a
+      @user.destroy
+      expect(lists).not_to be_empty
+      lists.each do |list|
+        expect(List.where(id: list.id)).to be_empty
       end
     end
   end
