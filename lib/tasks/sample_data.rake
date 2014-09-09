@@ -7,6 +7,7 @@ namespace :db do
     make_movies
     make_lists
     make_items
+    make_shares
   end
 end
 
@@ -61,8 +62,18 @@ def make_items
 
   List.all.each do |l|
     movies.sample(Faker::Number.number(2).to_i).each do |m|
-      Items.create(list_id: l.id, movie_id: m.id)
+      Item.create(list_id: l.id, movie_id: m.id)
     end
   end
 end
 
+def make_shares
+  users = User.all
+
+  List.all.each do |l|
+    users.sample(Faker::Number.number(2).to_i).each do |u|
+      writable = [true, false].sample
+      Share.create(list_id: l.id, user_id: u.id, writable: writable)
+    end
+  end
+end

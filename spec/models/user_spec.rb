@@ -26,6 +26,7 @@ describe User do
   it { should respond_to(:follow!) }
   it { should respond_to(:movies) }
   it { should respond_to(:lists) }
+  it { should respond_to(:shares) }
  
   it { should be_valid }
   it { should_not be_admin }
@@ -185,6 +186,29 @@ describe User do
       lists.each do |list|
         expect(List.where(id: list.id)).to be_empty
       end
+    end
+  end
+
+  describe "shares associations" do
+    before { @user.save }
+    let(:list_one) { FactoryGirl.create(:list) }
+    let(:list_two) { FactoryGirl.create(:list) }
+    let!(:read_only_share) do
+      FactoryGirl.create(:share, user: @user, list: list_one)
+    end
+    let!(:writable_share) do
+      FactoryGirl.create(:writable, user: @user, list: list_two)
+    end
+
+    it "should have the right shares" do
+      expect(@user.shares.to_a).to include(read_only_share, writable_share)
+    end
+
+    it "should destroy associated shares" do
+      user_id = @user.id
+      @user.destroy
+      expect(Share.where(list_id: list_one.id, user_id: user_id)).to be_empty
+      expect(Share.where(list_id: list_two.id, user_id: user_id)).to be_empty
     end
   end
 

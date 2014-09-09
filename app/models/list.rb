@@ -3,6 +3,8 @@ class List < ActiveRecord::Base
   default_scope -> { order('created_at DESC') }
   has_many :items, dependent: :destroy
   has_many :movies, through: :items
+  has_many :shares, dependent: :destroy
+  has_many :users, through: :shares
 
   validates :name, presence: true
   validates :user_id, presence: true

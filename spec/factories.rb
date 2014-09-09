@@ -38,4 +38,13 @@ FactoryGirl.define do
     list
     movie
   end
+
+  factory :share do
+    list
+    user
+
+    factory :writable do
+      writable true
+    end
+  end
 end
