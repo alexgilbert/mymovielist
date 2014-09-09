@@ -16,6 +16,7 @@ describe Movie  do
   it { should respond_to(:overview) }
   it { should respond_to(:users) }
   it { should respond_to(:tmdb_movie) }
+  it { should respond_to(:lists) }
 
   describe "when imdb_id not present" do
     before { @movie.imdb_id = " " }
@@ -69,6 +70,32 @@ describe Movie  do
       expect(users).not_to be_empty
       users.each do |user|
         expect(Own.where(movie_id: movie_id, user_id: user.id)).to be_empty
+      end
+    end
+  end
+  
+  describe "list associations" do
+    before { @movie.save }
+    let(:list) { FactoryGirl.create(:list) }
+    let!(:item) do
+      FactoryGirl.create(:item, list: list, movie: @movie) 
+    end
+
+    it "should have list association" do
+      expect(@movie.lists).not_to be_empty
+    end
+
+    it "should have correct list association" do
+      expect(@movie.lists.to_a).to eq [list]
+    end
+
+    it "should destroy associated list" do
+      lists = @movie.lists.to_a
+      movie_id = @movie.id
+      @movie.destroy
+      expect(lists).not_to be_empty
+      lists.each do |list|
+        expect(Item.where(movie_id: movie_id, list_id: list.id)).to be_empty
       end
     end
   end

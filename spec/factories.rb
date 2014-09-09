@@ -33,4 +33,9 @@ FactoryGirl.define do
     name Faker::Lorem.word
     user
   end
+
+  factory :item do
+    list
+    movie
+  end
 end

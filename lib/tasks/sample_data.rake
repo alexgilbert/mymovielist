@@ -6,6 +6,7 @@ namespace :db do
     make_relationships
     make_movies
     make_lists
+    make_items
   end
 end
 
@@ -39,9 +40,29 @@ end
 
 def make_movies
   Movie.create!(imdb_id: "tt0137523", title: "Fight Club", release_date: "1999-10-14", runtime: 139, adult: false, overview: "A ticking-tim-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
+
+  99.times do |n|
+    imdb_id = n
+    title = Faker::Lorem.word
+    release_date = Date.today - Faker::Number.number(2).to_i.years
+    runtime = Faker::Number.number(3)
+    overview = Faker::Lorem.paragraph
+    Movie.create(imdb_id: imdb_id, title: title, release_date: release_date, runtime: runtime, adult: false, overview: overview)
+  end 
 end
 
 def make_lists
   User.all.each { |user| List.create(name: Faker::Lorem.word, user_id: user.id) }
   User.first(10).each { |user| List.create(name: "Queue", user_id: user.id) }
 end
+
+def make_items
+  movies = Movie.all
+
+  List.all.each do |l|
+    movies.sample(Faker::Number.number(2).to_i).each do |m|
+      Items.create(list_id: l.id, movie_id: m.id)
+    end
+  end
+end
+

@@ -1,6 +1,8 @@
 class Movie < ActiveRecord::Base
   has_many :owns, dependent: :destroy
   has_many :users, through: :owns
+  has_many :items, dependent: :destroy
+  has_many :lists, through: :items
 
   validates :imdb_id, presence: true
   validates :title, presence: true
