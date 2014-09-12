@@ -1,3 +1,5 @@
+require_dependency 'mytmdb/mytmdb_movie'
+
 class Movie < ActiveRecord::Base
   has_many :owns, dependent: :destroy
   has_many :users, through: :owns
@@ -10,6 +12,6 @@ class Movie < ActiveRecord::Base
   validates :runtime, numericality: { only_integer: true }
 
   def tmdb_movie
-    TmdbMovie.new(self.tmdb_id)
+    @tmdb_movie ||= Mytmdb::MytmdbMovie.new(self.imdb_id)
   end
 end
