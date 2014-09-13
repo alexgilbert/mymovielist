@@ -27,6 +27,9 @@ describe User do
   it { should respond_to(:movies) }
   it { should respond_to(:lists) }
   it { should respond_to(:shares) }
+  it { should respond_to(:owns?) }
+  it { should respond_to(:own) }
+  it { should respond_to(:unown) }
  
   it { should be_valid }
   it { should_not be_admin }

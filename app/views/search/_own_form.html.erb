@@ -1,7 +1,0 @@
-<div id="follow_form">
-  <% if current_user.owns?(id) %>
-    <%= render 'unown', id: id, title: title %>
-  <% else %>
-    <%= render 'own', id: id, title: title %>
-  <% end %>
-</div>

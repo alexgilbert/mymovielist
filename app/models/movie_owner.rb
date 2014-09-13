@@ -24,6 +24,6 @@ class MovieOwner
 
   private 
     def get_movie_id imdb_id
-      MovieBuilder.new(imdb_id).create.id
+      MovieBuilder.new(imdb_id.to_s).create.id
     end
 end

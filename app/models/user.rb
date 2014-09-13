@@ -43,6 +43,18 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy
   end
 
+  def owns?(imdb_id)
+    MovieOwner.new(self.id).owns?(imdb_id)
+  end
+
+  def own(imdb_id)
+    MovieOwner.new(self.id).own(imdb_id)
+  end
+
+  def unown(imdb_id)
+    MovieOwner.new(self.id).unown(imdb_id)
+  end
+
   private
 
     def create_remember_token

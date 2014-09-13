@@ -1,0 +1,7 @@
+<div id="follow_form">
+  <% if current_user.owns?(id) %>
+    <%= render 'movies/unown', id: id, title: title %>
+  <% else %>
+    <%= render 'movies/own', id: id, title: title %>
+  <% end %>
+</div>

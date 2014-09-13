@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   resources :movies 
   post '/own' => 'movies#own'
+  post '/unown' => 'movies#unown'
+
   resources :tv, only: [:index, :show]
   get '/tvs' => 'tv#index'
   resources :collections, only: [:index, :show]

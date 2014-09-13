@@ -16,11 +16,8 @@ class MoviesController < ApplicationController
   end
 
   def own
-    @mo = MovieOwner.new(current_user.id)
     title = params[:title]
-    require 'pry'
-    binding.pry
-    if @mo.own(params[:id])
+    if current_user.own(params[:id])
       flash[:success] = "You now own #{title}!"
       redirect_to movie_path(params[:id])
     else
@@ -29,6 +26,16 @@ class MoviesController < ApplicationController
     end
   end
 
+  def unown
+    title = params[:title]
+    if current_user.unown(params[:id])
+      flash[:success] = "You no longer own #{title}."
+      redirect_to movies_path
+    else
+      flash[:error] = "Sorry, #{title} was not successfully removed from your owned movies."
+      redirect_to movie_path(params[:id])
+    end
+  end
   def create
   end
 
