@@ -15,6 +15,20 @@ class MoviesController < ApplicationController
     @similar_movies = @mytmdb_movie.similar_movies
   end
 
+  def own
+    @mo = MovieOwner.new(current_user.id)
+    title = params[:title]
+    require 'pry'
+    binding.pry
+    if @mo.own(params[:id])
+      flash[:success] = "You now own #{title}!"
+      redirect_to movie_path(params[:id])
+    else
+      flash[:error] = "Sorry, #{title} was not successfully saved as a movie you own."
+      redirect_to movies_path
+    end
+  end
+
   def create
   end
 

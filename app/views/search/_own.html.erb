@@ -1,0 +1,5 @@
+<%= form_tag '/own' do %>
+  <div><%= hidden_field_tag 'id', id %></div>
+  <div><%= hidden_field_tag 'title', title %></div>
+  <%= submit_tag "I Own This", class: "btn btn-medium btn-primary" %>
+<% end %>

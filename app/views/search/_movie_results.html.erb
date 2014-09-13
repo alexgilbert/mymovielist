@@ -1,18 +1,19 @@
 <table class="table table-bordered table-striped table-hover">
-	<% @results.each do |movie| %>
-		<tr>
-			<td style="width:15%">
-				<%= link_to movie_path(movie.details.id) do %>
-					<%= image_tag("#{@configuration.base_url}w154#{movie.details.poster_path}") if movie.details.poster_path %>
-				<% end %>
-			</td>
-			<td>
-				<%= link_to movie.details.title, movie_path(movie.details.id) %> (<%= movie.details.release_date %>) <br />
-				<% if movie.crew.any? %>
-					Directors: <% movie.crew.each do |crew| %> <% if crew['department'] == 'Directing' %> <%= link_to crew['name'], person_path(crew['id']) %> <% end %><% end %><br />
-				<% end %>
-				Starring: <% movie.cast.first(3).each do |cast| %> <%= link_to cast['name'], person_path(cast['id']) %> | <% end %><br />
-			</td>
-		</tr>
-	<% end %>
+  <% @results.each do |movie| %>
+    <tr>
+      <td style="width:15%">
+        <%= link_to movie_path(movie.details.id) do %>
+        <%= image_tag("#{@configuration.base_url}w154#{movie.details.poster_path}") if movie.details.poster_path %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to movie.details.title, movie_path(movie.details.id) %> (<%= movie.details.release_date %>) <br />
+        <%= render 'own_form', id: movie.details.id, title: movie.details.title  if signed_in? %>
+        <% if movie.crew.any? %>
+          Directors: <% movie.crew.each do |crew| %> <% if crew['department'] == 'Directing' %> <%= link_to crew['name'], person_path(crew['id']) %> <% end %><% end %><br />
+        <% end %>
+        Starring: <% movie.cast.first(3).each do |cast| %> <%= link_to cast['name'], person_path(cast['id']) %> | <% end %><br />
+      </td>
+    </tr>
+  <% end %>
 </table>

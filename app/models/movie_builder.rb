@@ -1,6 +1,6 @@
 require_dependency 'mytmdb/mytmdb_movie'
 
-class MovieCreator
+class MovieBuilder
 
   def initialize imdb_id
     @imdb_id = imdb_id
