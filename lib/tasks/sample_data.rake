@@ -5,6 +5,7 @@ namespace :db do
     make_microposts
     make_relationships
     make_movies
+    make_owns
     make_lists
     make_items
     make_shares
@@ -69,6 +70,16 @@ def make_shares
     users.sample(Faker::Number.number(2).to_i).each do |u|
       writable = [true, false].sample
       Share.create(list_id: l.id, user_id: u.id, writable: writable)
+    end
+  end
+end
+
+def make_owns
+  movies = Movie.all
+
+  User.all.each do |u|
+    movies.sample(Faker::Number.number(2).to_i).each do |m|
+      Own.create(user_id: u.id, movie_id: m.id)
     end
   end
 end

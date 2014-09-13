@@ -1,1 +1,6 @@
-<%= render_results(@type) %>
+<h3>Search Results</h3>
+<% if @results.any? %>
+  <%= render_results(@type) %>
+<% else %>
+  <p>Sorry, No Results. Please refine your search to be more specific.</p>
+<% end %>

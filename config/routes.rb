@@ -21,9 +21,10 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   delete 'relationships'  => 'relationships#destroy'
 
-  resources :movies 
+  resources :movies, only: [:index, :show]
   post '/own' => 'movies#own'
   post '/unown' => 'movies#unown'
+  get '/my_movies' => 'movies#owned'
 
   resources :tv, only: [:index, :show]
   get '/tvs' => 'tv#index'

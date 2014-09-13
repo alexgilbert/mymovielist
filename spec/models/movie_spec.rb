@@ -15,7 +15,7 @@ describe Movie  do
   it { should respond_to(:adult) }
   it { should respond_to(:overview) }
   it { should respond_to(:users) }
-  it { should respond_to(:tmdb_movie) }
+  it { should respond_to(:mytmdb_movie) }
   it { should respond_to(:lists) }
 
   describe "when imdb_id not present" do

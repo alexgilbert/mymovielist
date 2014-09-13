@@ -22,6 +22,7 @@ class MovieBuilder
         release_date: tmdb_movie.details.release_date, 
         runtime: tmdb_movie.details.runtime.to_i,
         adult: tmdb_movie.details.adult,
-        overview: tmdb_movie.details.overview)
+        overview: tmdb_movie.details.overview,
+        poster_path: tmdb_movie.details.poster_path)
     end
 end

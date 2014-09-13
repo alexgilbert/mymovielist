@@ -11,7 +11,7 @@ class Movie < ActiveRecord::Base
   validates :release_date, presence: true, date: { before: Proc.new { Time.now } }
   validates :runtime, numericality: { only_integer: true }
 
-  def tmdb_movie
-    @tmdb_movie ||= Mytmdb::Movie.new(self.imdb_id)
+  def mytmdb_movie
+    @mytmdb_movie ||= Mytmdb::Movie.new(self.imdb_id)
   end
 end

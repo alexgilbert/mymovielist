@@ -12,7 +12,9 @@
         <% if movie.crew.any? %>
           Directors: <% movie.crew.each do |crew| %> <% if crew['department'] == 'Directing' %> <%= link_to crew['name'], person_path(crew['id']) %> <% end %><% end %><br />
         <% end %>
-        Starring: <% movie.cast.first(3).each do |cast| %> <%= link_to cast['name'], person_path(cast['id']) %> | <% end %><br />
+        <% if movie.cast.any? %>
+          Starring: <% movie.cast.first(3).each do |cast| %> <%= link_to cast['name'], person_path(cast['id']) %> | <% end %>
+       <% end %><br />
       </td>
     </tr>
   <% end %>

@@ -55,6 +55,10 @@ class User < ActiveRecord::Base
     MovieOwner.new(self.id).unown(imdb_id)
   end
 
+  def tmdb_movies
+    self.movies.map{ |m| m.mytmdb_movie } 
+  end
+ 
   private
 
     def create_remember_token

@@ -32,6 +32,7 @@ describe "Authentication", type: :request do
       end
 
       it { should have_title(user.name) }
+      it { should have_link('Your Movies',  href: my_movies_path) }
       it { should have_link('Movies',       href: movies_path) }
       it { should have_link('People',       href: people_path) }
       it { should have_link('TV',           href: tvs_path) }

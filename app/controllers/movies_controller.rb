@@ -1,6 +1,7 @@
 require_dependency 'mytmdb/movie'
 
 class MoviesController < ApplicationController
+  before_action :signed_in_user, only: [:own, :unown, :owned]
 
   def index
   end
@@ -22,7 +23,7 @@ class MoviesController < ApplicationController
       redirect_to movie_path(params[:id])
     else
       flash[:error] = "Sorry, #{title} was not successfully saved as a movie you own."
-      redirect_to movies_path
+      redirect_to my_movies_path
     end
   end
 
@@ -30,28 +31,15 @@ class MoviesController < ApplicationController
     title = params[:title]
     if current_user.unown(params[:id])
       flash[:success] = "You no longer own #{title}."
-      redirect_to movies_path
+      redirect_to my_movies_path
     else
       flash[:error] = "Sorry, #{title} was not successfully removed from your owned movies."
       redirect_to movie_path(params[:id])
     end
   end
-  def create
-  end
 
-  def new
+  def owned
+    @movies = current_user.movies.paginate(page: params[:page], per_page: 10)
+    @configuration = Mytmdb.new.configuration
   end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
-  private
-    def setup_tmdb
-    end
 end

@@ -1,0 +1,7 @@
+<li>
+  <%= link_to movie_path(movie.imdb_id) do %>
+    <%= image_tag("#{@configuration.base_url}w154#{movie.poster_path}") if movie.poster_path %>
+  <% end %>
+  <%= link_to movie.title, movie_path(movie.imdb_id) %>
+  <%= render 'own_form', id: movie.imdb_id, title: movie.title %>
+</li>
