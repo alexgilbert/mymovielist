@@ -1,8 +1,8 @@
-require_dependency 'mytmdb/mytmdb_movie'
-require_dependency 'mytmdb/mytmdb_person'
-require_dependency 'mytmdb/mytmdb_company'
-require_dependency 'mytmdb/mytmdb_collection'
-require_dependency 'mytmdb/mytmdb_tv'
+require_dependency 'mytmdb/movie'
+require_dependency 'mytmdb/person'
+require_dependency 'mytmdb/company'
+require_dependency 'mytmdb/collection'
+require_dependency 'mytmdb/tv'
 
 class MytmdbFactory
   def self.build i, id

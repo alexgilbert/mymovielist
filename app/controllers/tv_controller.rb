@@ -1,4 +1,4 @@
-require_dependency 'mytmdb/mytmdb_tv'
+require_dependency 'mytmdb/tv'
 
 class TvController < ApplicationController
 
@@ -6,7 +6,7 @@ class TvController < ApplicationController
   end
 
   def show
-    @mytmdb_tv = Mytmdb::MytmdbTv.new(params[:id])
+    @mytmdb_tv = Mytmdb::Tv.new(params[:id])
     @configuration = @mytmdb_tv.configuration
     @show = @mytmdb_tv.details    
     @images = @mytmdb_tv.images

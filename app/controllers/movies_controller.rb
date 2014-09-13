@@ -1,4 +1,4 @@
-require_dependency 'mytmdb/mytmdb_movie'
+require_dependency 'mytmdb/movie'
 
 class MoviesController < ApplicationController
 
@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @mytmdb_movie = Mytmdb::MytmdbMovie.new(params[:id])
+    @mytmdb_movie = Mytmdb::Movie.new(params[:id])
     @configuration = @mytmdb_movie.configuration
     @movie = @mytmdb_movie.details    
     @images = @mytmdb_movie.images

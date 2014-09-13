@@ -1,9 +1,8 @@
-require_dependency 'mytmdb/mytmdb_movie'
-
 class MovieOwner
  
   def initialize user_id
     @user_id = user_id
+    @mb = MovieBuilder.new
   end
 
   def user_id
@@ -24,6 +23,6 @@ class MovieOwner
 
   private 
     def get_movie_id imdb_id
-      MovieBuilder.new(imdb_id.to_s).create.id
+      @mb.set_imdb_id(imdb_id.to_s).create.id
     end
 end
