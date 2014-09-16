@@ -32,14 +32,16 @@ describe "Authentication", type: :request do
       end
 
       it { should have_title(user.name) }
-      it { should have_link('Your Movies',  href: my_movies_path) }
-      it { should have_link('Movies',       href: movies_path) }
-      it { should have_link('People',       href: people_path) }
-      it { should have_link('TV',           href: tvs_path) }
-      it { should have_link('Profile',	   href: user_path(user)) }
-      it { should have_link('Settings',	   href: edit_user_path(user)) }
-      it { should have_link('Sign out',	   href: signout_path) }
-      it { should_not have_link('Sign in', href: signin_path) }
+      it { should have_link('Owned',          href: my_movies_path) }
+      it { should have_link('List',           href: lists_path) }
+      it { should have_link('Now Playing',    href: now_playing_movies_path) }
+      it { should have_link('Upcoming',       href: upcoming_movies_path) }
+      it { should have_link('Popular',        href: popular_movies_path) }
+      it { should have_link('Top Rated',      href: top_rated_movies_path) }
+      it { should have_link('Profile',	      href: user_path(user)) }
+      it { should have_link('Settings',	      href: edit_user_path(user)) }
+      it { should have_link('Sign out',	      href: signout_path) }
+      it { should_not have_link('Sign in',    href: signin_path) }
 
       describe "followed by signout" do
         before { click_link "Sign out" }

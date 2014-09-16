@@ -1,7 +1,6 @@
-class Mytmdb::NowPlayingMovies < Mytmdb
-  @movies
-  
+class Mytmdb::NowPlayingMovies < MovieGroup
   def get
-    @movies ||= Tmdb::Movie.now_playing
+    @results ||= Tmdb::Movie.now_playing
+    return results_to_movie
   end
 end

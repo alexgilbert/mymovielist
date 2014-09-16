@@ -25,12 +25,15 @@ Rails.application.routes.draw do
   post '/own' => 'movies#own'
   post '/unown' => 'movies#unown'
   get '/my_movies' => 'movies#owned'
+  get '/now_playing_movies' => 'movies#now_playing'
+  get '/upcoming_movies' => 'movies#upcoming'
+  get '/popular_movies' => 'movies#popular'
+  get '/top_rated_movies' => 'movies#top_rated'  
 
+  resources :lists, only: [:index, :show]
   resources :tv, only: [:index, :show]
-  get '/tvs' => 'tv#index'
   resources :collections, only: [:index, :show]
   resources :person, only: [:index, :show]
-  get '/people' => 'person#index'
   resources :company, only: [:index, :show]
   resources :genres, only: [:index, :show]
 

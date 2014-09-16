@@ -1,7 +1,6 @@
-class Mytmdb::PopularMovies < Mytmdb
-  @movies
-  
+class Mytmdb::PopularMovies < MovieGroup
   def get
-    @movies ||= Tmdb::Movie.popular
+    @results ||= Tmdb::Movie.popular
+    return results_to_movie
   end
 end

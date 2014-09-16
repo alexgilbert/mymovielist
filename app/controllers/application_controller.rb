@@ -22,4 +22,9 @@ class ApplicationController < ActionController::Base
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
+
+    def render_index
+      @configuration = Mytmdb.new.configuration
+      render 'index'
+    end
 end

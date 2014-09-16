@@ -42,4 +42,28 @@ class MoviesController < ApplicationController
     @movies = current_user.movies.paginate(page: params[:page], per_page: 10)
     @configuration = Mytmdb.new.configuration
   end
+
+  def now_playing
+    @title = "Now Playing"
+    @movies = Mytmdb::NowPlayingMovies.new.get
+    render_index
+  end
+
+  def upcoming
+    @title = "Upcoming"
+    @movies = Mytmdb::UpcomingMovies.new.get
+    render_index
+  end
+
+  def popular
+    @title = "Popular"
+    @movies = Mytmdb::PopularMovies.new.get
+    render_index
+  end
+
+  def top_rated
+    @title = "Top Rated"
+    @movies = Mytmdb::TopRatedMovies.new.get
+    render_index
+  end
 end

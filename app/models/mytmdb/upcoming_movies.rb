@@ -1,7 +1,6 @@
-class Mytmdb::UpcomingMovies < Mytmdb
-  @movies
-  
+class Mytmdb::UpcomingMovies < MovieGroup
   def get
-    @movies ||= Tmdb::Movie.upcoming
+    @results ||= Tmdb::Movie.upcoming
+    return results_to_movie
   end
 end

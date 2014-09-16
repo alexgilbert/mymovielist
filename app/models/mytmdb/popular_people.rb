@@ -1,8 +1,6 @@
-class Mytmdb::PopularPeople < Mytmdb
-  @people
-  
+class Mytmdb::PopularPeople < MytmdbSearch
   def get
-    @people ||= Tmdb::Person.popular
-    return @people
+    @results ||= Tmdb::Person.popular
+    return results_to_mytmdb("2")
   end
 end

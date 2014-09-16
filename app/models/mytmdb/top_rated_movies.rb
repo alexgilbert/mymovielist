@@ -1,7 +1,6 @@
-class Mytmdb::TopRatedMovies < Mytmdb
-  @movies
-  
+class Mytmdb::TopRatedMovies < MovieGroup
   def get
-    @movies ||= Tmdb::Movie.top_rated
+    @results ||= Tmdb::Movie.top_rated
+    return results_to_movie
   end
 end
