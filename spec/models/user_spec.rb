@@ -31,6 +31,7 @@ describe User do
   it { should respond_to(:own) }
   it { should respond_to(:unown) }
   it { should respond_to(:tmdb_movies) }
+  it { should respond_to(:writable_lists) }
  
   it { should be_valid }
   it { should_not be_admin }
