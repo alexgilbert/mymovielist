@@ -30,7 +30,8 @@ Rails.application.routes.draw do
   get '/popular_movies' => 'movies#popular'
   get '/top_rated_movies' => 'movies#top_rated'  
 
-  resources :lists, only: [:index, :show]
+  resources :lists
+  post '/remove_from_list' => 'lists#remove_movie'
   resources :tv, only: [:index, :show]
   resources :collections, only: [:index, :show]
   resources :person, only: [:index, :show]

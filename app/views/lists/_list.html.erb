@@ -1,0 +1,12 @@
+<% if @list.movies.any? %>
+  <h3>Movies (<%= @list.movies.count %>)</h3>
+
+  <%= will_paginate @movies %>
+
+  <ol class="microposts">
+    <%= render @movies %>
+  </ol>
+
+  <%= will_paginate @movies %>
+
+<% end %>

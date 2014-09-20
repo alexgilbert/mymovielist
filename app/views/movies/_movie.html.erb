@@ -3,5 +3,8 @@
     <%= image_tag("#{@configuration.base_url}w154#{movie.poster_path}") if movie.poster_path %>
   <% end %>
   <%= link_to movie.title, movie_path(movie.imdb_id) %>
-  <%= render 'own_form', id: movie.imdb_id, title: movie.title %>
+  <%= render 'movies/own_form', id: movie.imdb_id, title: movie.title %>
+  <% if user_can_edit_list? %>
+    <%= render 'lists/remove_form', movie_id: movie.id, list_id: @list.id %>
+  <% end %>
 </li>

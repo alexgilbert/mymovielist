@@ -1,0 +1,5 @@
+<% provide(:title, @list.name) %>
+<h3><%= @list.name %></h3>
+<h4><%= list_owner_name(@list) %></h4>
+
+<%= render 'list' %>

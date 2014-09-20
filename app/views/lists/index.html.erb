@@ -1,2 +1,12 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<% provide(:title, 'Lists') %>
+<h1>Lists</h1>
+
+<%= will_paginate @shares %>
+
+<ul class="users">
+  <% @shares.each do |s| %>
+    <li><%= link_to s.list.name, s.list %> - <%= link_to list_owner_name(s.list), s.list.user %></li>
+  <% end %>
+</ul>
+
+<%= will_paginate @shares %>

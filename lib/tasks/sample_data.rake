@@ -42,22 +42,31 @@ end
 
 def make_movies
   mb = MovieBuilder.new
-  99.times do |n|
+  999.times do |n|
     imdb_id = Faker::Number.number(2)
     mb.set_imdb_id(imdb_id).create
   end 
 end
 
 def make_lists
-  User.all.each { |user| List.create(name: Faker::Lorem.word, user_id: user.id) }
-  User.first(10).each { |user| List.create(name: "Queue", user_id: user.id) }
+  users = User.all
+  
+  users.each { |user| List.create(name: Faker::Lorem.word, user_id: user.id) }
+  
+  users.sample(Faker::Number.number(2).to_i).each do |u|
+    List.create(name: Faker::Lorem.word, user_id: u.id)
+  end
+
+  users.sample(Faker::Number.number(2).to_i).each do |u|
+    List.create(name: Faker::Lorem.word, user_id: u.id)
+  end
 end
 
 def make_items
   movies = Movie.all
 
   List.all.each do |l|
-    movies.sample(Faker::Number.number(2).to_i).each do |m|
+    movies.sample(Faker::Number.digit.to_i).each do |m|
       Item.create(list_id: l.id, movie_id: m.id)
     end
   end
@@ -67,9 +76,12 @@ def make_shares
   users = User.all
 
   List.all.each do |l|
-    users.sample(Faker::Number.number(2).to_i).each do |u|
-      writable = [true, false].sample
-      Share.create(list_id: l.id, user_id: u.id, writable: writable)
+    Share.create(list_id: l.id, user_id: l.user_id, writable: true)
+    users.sample(Faker::Number.digit.to_i).each do |u|
+      writable = [true, false, false, false, false].sample
+      if l.user_id != u.id
+        Share.create(list_id: l.id, user_id: u.id, writable: writable)
+      end 
     end
   end
 end
