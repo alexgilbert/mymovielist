@@ -8,5 +8,10 @@ class List < ActiveRecord::Base
 
   validates :name, presence: true
   validates :user_id, presence: true
-end
 
+  def share_attributes=(share_attributes)
+    share_attributes.each do |attributes|
+      share.build(attributes)
+    end
+  end
+end

@@ -8,9 +8,14 @@ class ListsController < ApplicationController
   
   def show
     @share = Share.find_by(list_id: params[:id], user_id: current_user.id)
-    @list = @share.list
-    @movies = @share.list.movies.paginate(page: params[:page], per_page: 10)
-    @configuration = Mytmdb.new.configuration
+    if @share.nil?
+      flash[:warning] = "You do not have access to this list"
+      redirect_to lists_url
+    else
+      @list = @share.list
+      @movies = @share.list.movies.paginate(page: params[:page], per_page: 10)
+      @configuration = Mytmdb.new.configuration
+    end
   end
 
   def destroy
@@ -24,10 +29,15 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = list.new(list_params)
+    @list = List.new(list_params)
     if @list.save
-      flash[:success] = "List Saved."
-      redirect_to @list
+      @list.shares.build(writable: true, user_id: @list.user_id)
+      if @list.save
+        flash[:success] = "List Saved."
+        redirect_to @list
+      else
+        render 'new'
+      end
     else
       render 'new'
     end
