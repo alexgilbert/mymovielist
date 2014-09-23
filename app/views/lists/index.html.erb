@@ -9,7 +9,7 @@
     <li><%= link_to s.list.name, s.list %> - <%= link_to list_owner_name(s.list), s.list.user %>
  (<%= s.list.movies.count %>)
       <% if s.list.user == current_user %>
-        | <%= link_to "delete", s.list, method: :delete, data: { confirm: "Are you sure you want to delete #{s.list.name}" } %>
+       | <%= link_to "Change Name", edit_list_path(s.list) %> | <%= link_to "Delete", s.list, method: :delete, data: { confirm: "Are you sure you want to delete #{s.list.name}" } %>
       <% end %>
     </li>
   <% end %>

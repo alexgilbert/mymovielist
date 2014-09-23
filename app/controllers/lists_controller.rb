@@ -69,4 +69,11 @@ class ListsController < ApplicationController
     def list_params
       params.require(:list).permit(:name, :user_id)
     end
+
+    def correct_user
+      if List.find_by(id: params[:id], user_id: current_user.id).nil?
+        flash[:warning] = "You do not have access to modify this list"
+        redirect_to lists_path
+      end
+    end
 end
