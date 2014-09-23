@@ -4,6 +4,9 @@
   <% end %>
   <%= link_to movie.title, movie_path(movie.imdb_id) %>
   <%= render 'movies/own_form', id: movie.imdb_id, title: movie.title %>
+  <% if not_on_list_page? %>
+    <%= render 'lists/add_form', movie_id: movie.imdb_id  %>
+  <% end %>
   <% if user_can_edit_list? %>
     <%= render 'lists/remove_form', movie_id: movie.id, list_id: @list.id %>
   <% end %>

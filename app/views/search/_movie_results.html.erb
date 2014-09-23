@@ -9,6 +9,7 @@
       <td>
         <%= link_to movie.details.title, movie_path(movie.details.id) %> (<%= movie.details.release_date %>) <br />
         <%= render 'movies/own_form', id: movie.details.id, title: movie.details.title  if signed_in? %>
+        <%= render 'lists/add_form', movie_id: movie.details.id  %>
         <% if movie.crew.any? %>
           Directors: <% movie.crew.each do |crew| %> <% if crew['department'] == 'Directing' %> <%= link_to crew['name'], person_path(crew['id']) %> <% end %><% end %><br />
         <% end %>

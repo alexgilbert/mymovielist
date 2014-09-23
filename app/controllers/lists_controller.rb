@@ -64,6 +64,17 @@ class ListsController < ApplicationController
     redirect_to list_path(params[:list_id])
   end
   
+  def add_movie
+    @mb = MovieBuilder.new
+    @item = Item.new(list_id: params[:list_id], movie_id: @mb.set_imdb_id(params[:movie_id]).create.id)
+    if Item.find_by(movie_id: @item.movie_id, list_id: @item.list_id).present?
+      flash[:warning] = "Movie already in List"
+    elsif @item.save
+      flash[:success] = "Movie added to List"
+    end
+    redirect_to list_path(params[:list_id])
+  end
+
   private
   
     def list_params

@@ -239,3 +239,9 @@ ul.users li {
 .search input {
   width: 200px;
 }
+
+/* lists */
+
+.lists select {
+  width: 200px;
+}

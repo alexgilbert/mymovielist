@@ -18,6 +18,7 @@
     <div class="span10">
       <h2><%= @movie.title %></h2>
       <%= render 'movies/own_form', id: @movie.id, title: @movie.title  if signed_in? %>
+      <%= render 'lists/add_form', movie_id: @movie.id  %>
       <div id="star" data-score="<%= @movie.vote_average %>"></div> <%= @movie.vote_average %> from <%= @movie.vote_count %> voters.
 
 			<h3>Overview</h3>

@@ -1,5 +1,5 @@
 <%= form_tag '/unown' do %>
-  <div><%= hidden_field_tag 'id', id %></div>
-  <div><%= hidden_field_tag 'title', title %></div>
+  <%= hidden_field_tag 'id', id %>
+  <%= hidden_field_tag 'title', title %>
   <%= submit_tag "You No Longer Own This", class: "btn btn-medium btn-primary" %>
 <% end %>
