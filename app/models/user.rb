@@ -56,11 +56,11 @@ class User < ActiveRecord::Base
   end
 
   def tmdb_movies
-    self.movies.map{ |m| m.mytmdb_movie } 
+    @tmdb_movies ||= self.movies.map{ |m| m.mytmdb_movie } 
   end
 
   def writable_lists
-    self.shares.where(writable: true).map{ |s| s.list }
+    @writable_lists ||= self.shares.where(writable: true).map{ |s| s.list }
   end
  
   private

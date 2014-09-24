@@ -1,7 +1,9 @@
-<div class="lists">
-  <%= form_tag '/add_to_list' do %>
-    <%= select_tag "list_id", options_from_collection_for_select(current_user.writable_lists, "id", "name") %>
-    <%= hidden_field_tag 'movie_id', movie_id %>
-    <%= submit_tag "Add to List", class: "btn btn-medium btn-primary" %>
-  <% end %>
-</div>
+<% if current_user.writable_lists.any? %>
+  <div class="lists">
+    <%= form_tag '/add_to_list' do %>
+      <%= select_tag "list_id", options_from_collection_for_select(current_user.writable_lists, "id", "name") %>
+      <%= hidden_field_tag 'movie_id', movie_id %>
+      <%= submit_tag "Add to List", class: "btn btn-medium btn-primary" %>
+    <% end %>
+  </div>
+<% end %>
