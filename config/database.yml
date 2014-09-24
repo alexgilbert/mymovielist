@@ -30,6 +30,8 @@ test:
 production:
   <<: *default
   encoding: unicode
-  database: application_name
-  username: application_name
-  password:
+  host: ec2-54-225-101-4.compute-1.amazonaws.com
+  port: 5432
+  database: d6kpltlu9iicgl
+  username: brirfphfjyzfej
+  password: 2lxxBvRz3FIKWFZLa0AWeZHdia
