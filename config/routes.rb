@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resources :lists
   post '/remove_from_list' => 'lists#remove_movie'
   post '/add_to_list' => 'lists#add_movie'
+  post '/shares' => 'lists#share'
   resources :tv, only: [:index, :show]
   resources :collections, only: [:index, :show]
   resources :person, only: [:index, :show]

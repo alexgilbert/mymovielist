@@ -75,10 +75,26 @@ class ListsController < ApplicationController
     redirect_to list_path(params[:list_id])
   end
 
+  def share
+    @share = Share.new(share_params)
+    if Share.find_by(user_id: @share.user_id, list_id: @share.list_id).present?
+      flash[:warning] = "List already shared to User"
+    elsif @share.save
+      flash[:success] = "List shared."
+    else
+      flash[:error] = "Error occured. Please try again."
+    end
+    redirect_to list_path(@share.list_id)
+  end
+
   private
   
     def list_params
       params.require(:list).permit(:name, :user_id)
+    end
+
+    def share_params
+      params.require(:share).permit(:user_id, :list_id, :writable)
     end
 
     def correct_user

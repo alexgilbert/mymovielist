@@ -1,6 +1,7 @@
 <% provide(:title, @list.name) %>
 <%= render "search/back_to_results" %>
 <h3><%= @list.name %></h3>
+<%= render "share_form" %>
 <h4><%= list_owner_name(@list) %></h4>
 
 <%= render 'list' %>

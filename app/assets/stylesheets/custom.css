@@ -245,3 +245,23 @@ ul.users li {
 .lists select {
   width: 200px;
 }
+
+
+.share label, select, input[type="checkbox"], input[type="submit"] {
+  display: inline;
+}
+
+.share label, select {
+  margin-right: 10px;
+}
+
+.share label {
+  color: #0088cc;
+}
+
+.share select {
+  width: 250px;
+}
+
+
+
