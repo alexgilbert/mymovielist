@@ -63,6 +63,11 @@ class User < ActiveRecord::Base
     @writable_lists ||= self.shares.where(writable: true).map{ |s| s.list }
   end
  
+  def can_share_with?(user_id)
+    Relationship.find_by(follower_id: self.id, followed_id: user_id).present? && 
+    Relationship.find_by(follower_id: user_id, followed_id: self.id).present?
+  end
+
   private
 
     def create_remember_token
