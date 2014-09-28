@@ -63,6 +63,10 @@ class User < ActiveRecord::Base
     @writable_lists ||= self.shares.where(writable: true).map{ |s| s.list }
   end
 
+  def sharable_users(list_id)
+    self.followers.reject { |u| Share.find_by(user_id: u.id, list_id: list_id)} 
+  end
+
   private
 
     def create_remember_token
