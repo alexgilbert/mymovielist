@@ -1,5 +1,5 @@
 <%= form_tag '/remove_from_list' do %>
   <div><%= hidden_field_tag 'list_id', list_id %></div>
   <div><%= hidden_field_tag 'movie_id', movie_id %></div>
-  <%= submit_tag "Remove From List", class: "btn btn-medium btn-primary" %>
+  <%= submit_tag "Remove From List", class: "btn btn-medium" %>
 <% end %>

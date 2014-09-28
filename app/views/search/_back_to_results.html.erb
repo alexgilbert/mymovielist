@@ -1,0 +1,7 @@
+<% if search_has_been_performed? %>
+  <%= form_tag("/search") do %>
+    <%= hidden_field_tag(:type, get_search_type) %>
+    <%= hidden_field_tag(:value, get_search_value) %>
+    <%= submit_tag("Back To Search Results", :class => "btn btn-medium") %>
+  <% end %>
+<% end %>

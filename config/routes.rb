@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   resources :company, only: [:index, :show]
   resources :genres, only: [:index, :show]
 
-  get 'search' => "search#index"
+  post 'search' => "search#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

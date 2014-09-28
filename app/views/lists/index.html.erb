@@ -1,5 +1,6 @@
 <% provide(:title, 'Lists') %>
 <h1>Lists</h1>
+<%= render "search/back_to_results" %>
 <%= link_to "New List", new_list_path, class: "btn btn-large btn-primary" %>
 
 <%= will_paginate @shares %>
