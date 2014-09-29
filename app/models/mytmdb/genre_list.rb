@@ -1,6 +1,4 @@
-class Mytmdb::ListGenres < Mytmdb
-  @genres
-  
+class Mytmdb::GenreList < Mytmdb
   def get
     @genres ||= Tmdb::Genre.list
   end
