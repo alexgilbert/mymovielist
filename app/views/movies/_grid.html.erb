@@ -1,0 +1,40 @@
+<button class="wg-external-submit-button" data-grid-name="grid">Submit</button>
+<button class="wg-external-reset-button" data-grid-name="grid">Reset</button>
+<%= grid(@movies) do |g| 
+ 
+  g.blank_slate do 
+    "You do not own any movies. Search now and add movies to your owned list."
+  end 
+ 
+  g.column name: 'Poster' do |task|
+    link_to movie_path(task.imdb_id) do 
+      image_tag("#{@configuration.base_url}w154#{task.poster_path}") if task.poster_path 
+    end
+  end 
+
+  g.column name: 'Title', attribute: 'title' do |task|
+    link_to task.title, movie_path(task.imdb_id)
+  end 
+
+  g.column name: 'Release Date', attribute: 'release_date', helper_style: :calendar do |task|
+    task.release_date.to_s(:medium)
+  end 
+
+  g.column name: 'Runtime', attribute: 'runtime' 
+
+  g.column name: 'Overview', attribute: 'overview', ordering: false do |task|
+    task.overview[0..100] + "..."
+  end
+    
+  g.column do |task|
+    render 'movies/own_form', id: task.imdb_id, title: task.title 
+  end 
+  
+  g.column do |task|
+    render 'lists/add_form', movie_id: task.imdb_id if not_on_list_page?
+  end 
+  
+  g.column do |task|
+    render 'lists/remove_form', movie_id: task.id, list_id: @list.id if user_can_edit_list?
+  end 
+end -%>

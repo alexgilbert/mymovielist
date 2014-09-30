@@ -39,7 +39,7 @@ class MoviesController < ApplicationController
   end
 
   def owned
-    @movies = current_user.movies.paginate(page: params[:page], per_page: 10)
+    @movies = initialize_grid(current_user.movies, order: 'movies.title', per_page: 10)
     @configuration = Mytmdb.new.configuration
   end
 

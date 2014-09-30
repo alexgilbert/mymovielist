@@ -3,7 +3,7 @@ class ListsController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
 
   def index
-    @shares = current_user.shares.paginate(page: params[:page], per_page: 10)
+    @shares = current_user.shares.page params[:page]
   end
   
   def show
@@ -13,7 +13,7 @@ class ListsController < ApplicationController
       redirect_to lists_url
     else
       @list = @share.list
-      @movies = @share.list.movies.paginate(page: params[:page], per_page: 10)
+      @movies = initialize_grid(@share.list.movies, order: 'movies.title' , per_page: 10)
       @configuration = Mytmdb.new.configuration
     end
   end

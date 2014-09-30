@@ -1,15 +1,4 @@
 <% provide(:title, 'Your Movies') %>
 <h3>Movies You Own</h3>
 <%= render "search/back_to_results" %>
-<% if @movies.any? %>
-  <%= will_paginate %>
-
-  <ul class="users">
-    <%= render @movies %>
-  </ul>
-
-  <%= will_paginate %>
-<% else %>
-  <p>You do not own any movies. Search for movies now and add the movies you own</p>
-<% end %>
-
+<%= render 'grid' %>

@@ -4,6 +4,7 @@ class Micropost < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
 
+  paginates_per 50
   # Returns microposts from the users being followed by the given user.
   def self.from_user_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"

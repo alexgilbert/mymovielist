@@ -13,9 +13,9 @@ gem 'bcrypt'
 # gem 'therubyracer',  platforms: :ruby
 gem 'date_validator'
 
+gem 'wice_grid', '3.4.2'
+gem 'kaminari'
 gem 'faker', '1.2'
-gem 'will_paginate', '3.0.4'
-gem 'bootstrap-will_paginate', '0.0.9'
 gem "twitter-bootstrap-rails"
 gem 'uglifier', '>= 1.3.0'
 gem "therubyracer"
@@ -27,6 +27,7 @@ gem 'themoviedb'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
