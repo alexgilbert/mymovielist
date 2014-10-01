@@ -60,6 +60,7 @@ end
 
 group :production do
    gem 'unicorn'
+   gem 'rails_serve_static_assets'
 end
 
 # Use Capistrano for deployment

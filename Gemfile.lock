@@ -218,6 +218,7 @@ DEPENDENCIES
   pry-rails
   rails (= 4.1.4)
   rails_12factor
+  rails_serve_static_assets
   rspec-its
   rspec-rails (~> 3.0.0)
   sdoc (~> 0.4.0)
