@@ -39,6 +39,14 @@ FactoryGirl.define do
     movie
   end
 
+  factory :genre do
+    name Faker::Lorem.word
+  end
+
+  factory :classification do
+    genre
+    movie
+  end
   factory :share do
     list
     user
