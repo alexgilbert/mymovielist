@@ -13,7 +13,7 @@ class ListsController < ApplicationController
       redirect_to lists_url
     else
       @list = @share.list
-      @movies = initialize_grid(@share.list.movies, order: 'movies.title' , per_page: 10)
+      @movies = initialize_grid(@share.list.movies, include: [:genres], order: 'movies.title' , per_page: 10)
       @configuration = Mytmdb.new.configuration
     end
   end

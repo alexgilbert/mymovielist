@@ -6,7 +6,7 @@ class Movie < ActiveRecord::Base
   has_many :items, dependent: :destroy
   has_many :lists, through: :items
   has_many :classifications, dependent: :destroy
-  has_many :genre, through: :classifications
+  has_many :genres, through: :classifications
 
   validates :imdb_id, presence: true
   validates :title, presence: true
