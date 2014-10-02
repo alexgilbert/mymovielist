@@ -12,6 +12,7 @@ class MovieBuilder
     if movie.nil?
       movie = create_from_imdb_id
     end
+    movie.create_classifications
     return movie
   end
 

@@ -2,6 +2,8 @@ class ListsController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user,   only: [:edit, :update]
 
+  helper :movie
+
   def index
     @shares = current_user.shares.page params[:page]
   end
@@ -13,7 +15,7 @@ class ListsController < ApplicationController
       redirect_to lists_url
     else
       @list = @share.list
-      @movies = initialize_grid(@share.list.movies, order: 'movies.title' , per_page: 10)
+      @movies = initialize_grid(@share.list.movies.select("DISTINCT movies.*").joins(:classifications), include: [:genres], order: 'movies.title' , per_page: 10)
       @configuration = Mytmdb.new.configuration
     end
   end

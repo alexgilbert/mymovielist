@@ -25,6 +25,11 @@
   g.column name: 'Overview', attribute: 'overview', ordering: false do |task|
     task.overview[0..100] + "..."
   end
+
+  g.column name: 'Genres', model: 'Classification', attribute: 'genre_id', 
+    custom_filter: get_genre_list  do |task|
+    task.genres.collect{ |genre| genre.name }.to_sentence
+  end
     
   g.column do |task|
     render 'movies/own_form', id: task.imdb_id, title: task.title 
