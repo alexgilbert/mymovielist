@@ -7,4 +7,8 @@ module MovieHelper
   def not_on_list_page?
     params['controller'] != "lists"
   end
+
+  def get_genre_list
+    Genre.all.map { |g| [g.name, g.id] }
+  end
 end

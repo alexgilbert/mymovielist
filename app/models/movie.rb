@@ -16,4 +16,8 @@ class Movie < ActiveRecord::Base
   def mytmdb_movie
     @mytmdb_movie ||= Mytmdb::Movie.new(self.imdb_id)
   end
+
+  def create_classifications
+    ClassificationBuilder.new.set_movie_id(self.id).create
+  end
 end

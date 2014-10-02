@@ -39,7 +39,7 @@ class MoviesController < ApplicationController
   end
 
   def owned
-    @movies = initialize_grid(current_user.movies, include: [:genres], order: 'movies.title', per_page: 10)
+    @movies = initialize_grid(current_user.movies.select("DISTINCT movies.*").joins(:classifications), include: [:genres], order: 'movies.title', per_page: 10)
     @configuration = Mytmdb.new.configuration
   end
 

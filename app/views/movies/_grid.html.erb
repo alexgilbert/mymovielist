@@ -26,8 +26,9 @@
     task.overview[0..100] + "..."
   end
 
-  g.column name: 'Genres', model: 'Genre', attribute: 'name' do |task|
-    task.genres.name if task.genres
+  g.column name: 'Genres', model: 'Classification', attribute: 'genre_id', 
+    custom_filter: get_genre_list  do |task|
+    task.genres.collect{ |genre| genre.name }.to_sentence
   end
     
   g.column do |task|
