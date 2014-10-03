@@ -10,11 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require twitter/bootstrap
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.ui.datepicker
+//= require twitter/bootstrap
 //= require_tree .
 //= require wice_grid
