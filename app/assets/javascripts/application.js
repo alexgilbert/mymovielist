@@ -11,11 +11,10 @@
 // about supported directives.
 //
 //= require turbolinks
+//= require jquery
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.ui.datepicker
-//= require jquery
 //= require twitter/bootstrap
-//= require wice_grid
 //= require_tree .
-
+//= require wice_grid

@@ -58,7 +58,7 @@ Rails.application.configure do
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  config.assets.precompile += %w( bootstrap.js boostrap_and_overrides.css custom.css jquery-ui.js jquery-ui.datepaicker.js turbolinks.js wice_grid.css wice_grid.js wice_grid_init.js wice_grid_processor.js wice_grid_saved_queries_init.js )
+  config.assets.precompile += %w( bootstrap.js boostrap_and_overrides.css custom.css jquery-ui.js jquery-ui.datepicker.js turbolinks.js wice_grid.css wice_grid.js wice_grid_init.js wice_grid_processor.js wice_grid_saved_queries_init.js )
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
