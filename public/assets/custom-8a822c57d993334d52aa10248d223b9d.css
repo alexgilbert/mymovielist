@@ -266,12 +266,6 @@ ul.users li {
 
 /* datepicker */
 
-.ui-datepicker {
-  background-color: #FFF;
-  border: 2px solid #000;
-  margin-left: 10px;
-}
-
 .ui-datepicker { width: 17em; padding: 10px 10px 0; display: none; }
 .ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; }
 .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }

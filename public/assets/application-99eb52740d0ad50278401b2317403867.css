@@ -5867,8 +5867,8 @@ a.badge:focus {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url(/assets/fontawesome-webfont.eot);
-  src: url(/assets/fontawesome-webfont.eot?#iefix) format('embedded-opentype'), url(/assets/fontawesome-webfont.woff) format('woff'), url(/assets/fontawesome-webfont.ttf) format('truetype'), url(/assets/fontawesome-webfont.svg#fontawesomeregular) format('svg');
+  src: url(/assets/fontawesome-webfont-56ef081575e6a56023f2b640bcd374fb.eot);
+  src: url(/assets/fontawesome-webfont-56ef081575e6a56023f2b640bcd374fb.eot?#iefix) format('embedded-opentype'), url(/assets/fontawesome-webfont-f0d29c77386d596cd953deee524b9b44.woff) format('woff'), url(/assets/fontawesome-webfont-950e1cd7a8500fdd1c0b3ceaf7cc29c6.ttf) format('truetype'), url(/assets/fontawesome-webfont-60d8fa7ce3b6e6772a31f56bc96dd408.svg#fontawesomeregular) format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -7585,12 +7585,6 @@ ul.users li {
 
 /* datepicker */
 
-.ui-datepicker {
-  background-color: #FFF;
-  border: 2px solid #000;
-  margin-left: 10px;
-}
-
 .ui-datepicker { width: 17em; padding: 10px 10px 0; display: none; }
 .ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; }
 .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }
@@ -7776,6 +7770,7 @@ input.wice-grid-save-query-field{
  */
 
 /*
+
 
 
  */
