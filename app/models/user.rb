@@ -44,15 +44,18 @@ class User < ActiveRecord::Base
   end
 
   def owns?(imdb_id)
-    MovieOwner.new(self.id).owns?(imdb_id)
+    @mo ||= MovieOwner.new(self.id)
+    @mo.owns?(imdb_id)
   end
 
   def own(imdb_id)
-    MovieOwner.new(self.id).own(imdb_id)
+    @mo ||= MovieOwner.new(self.id)
+    @mo.own(imdb_id)
   end
 
   def unown(imdb_id)
-    MovieOwner.new(self.id).unown(imdb_id)
+    @mo ||= MovieOwner.new(self.id)
+    @mo.unown(imdb_id)
   end
 
   def tmdb_movies

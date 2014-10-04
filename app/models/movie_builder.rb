@@ -19,7 +19,7 @@ class MovieBuilder
   private
     def create_from_imdb_id
       tmdb_movie = Mytmdb::Movie.new(@imdb_id)
-      Movie.create(imdb_id: @imdb_id, title: tmdb_movie.details.title,
+      Movie.create!(imdb_id: @imdb_id, title: tmdb_movie.details.title,
         release_date: tmdb_movie.details.release_date, 
         runtime: tmdb_movie.details.runtime.to_i,
         adult: tmdb_movie.details.adult,
